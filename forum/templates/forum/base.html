@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +9,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css"
           integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'forum/main.css' %}">
     {% if title %}
         <title>论坛 - 【{{ title }}】</title>
     {% else %}
@@ -17,7 +19,7 @@
 
 <body>
 <nav class="navbar navbar-expand-lg fix-top navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">Wg的博客</a>
+    <a class="navbar-brand" href="{% url 'forum-home' %}">Wg的博客</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -26,10 +28,10 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link" href="#">主页<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="{% url 'forum-home' %}">主页<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">所有文章</a>
+                <a class="nav-link" href="{% url 'forum-home' %}">所有文章</a>
             </li>
              <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
@@ -44,7 +46,7 @@
                 </div>
             </li>
              <li class="nav-item">
-                <a class="nav-link" href="#">关于我们</a>
+                <a class="nav-link" href="{% url 'forum-about' %}">关于我们</a>
             </li>
 
         </ul>
@@ -64,7 +66,7 @@
 
     </div>
 </nav>
-<div class="container">
+<div class="container" style="margin-top: 100px">
     {% block content %}
     {% endblock %}
 </div>
