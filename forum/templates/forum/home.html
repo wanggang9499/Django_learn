@@ -1,0 +1,9 @@
+{% extends "forum/base.html" %}
+
+{% block content %}
+{% for post in posts %}
+    <h1>{{ post.title }}</h1>
+    <p>文章信息：由{{ post.author }} 发布时间为{{ post.date_posted }}</p>
+    <P>文章内容：{{ post.content }}</P>
+{% endfor %}
+{% endblock content %}
